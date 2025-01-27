@@ -408,7 +408,8 @@ const sideCart = document.querySelector('.side-cart');
 const cartItemsList = document.querySelector('.side-cart-items');
 const checkoutBtn = document.querySelector('.checkout-btn');
 const clearCartBtn = document.querySelector('.clear-cart-btn');
-
+const cartIcon = document.getElementById('cart-icon');
+const slideBox = document.querySelector('.slide-box');
 const cardContainer = document.querySelector('.card-container');
 
 // Function to toggle the side cart visibility
@@ -417,73 +418,16 @@ function toggleCart() {
     cardContainer.classList.toggle('shifted'); // Add or remove the shifted class
 }
 
-// Function to add an item to the cart
-function addToCart(item) {
-    // Add the item to the cart array
-    cartItems.push(item);
 
-    // Update the cart UI
+
+cartIcon.addEventListener('click', () => {
+  slideBox.classList.toggle('active'); 
+});
+
+function addToCart(item) {
+    cartItems.push(item);
     updateCartUI();
 }
-
-// Function to update the cart UI
-/*function updateCartUI() {
-    const cartContainer = document.querySelector('.side-cart .side-cart-items');
-    cartContainer.innerHTML = ''; // Clear existing items
-
-    if (cartItems.length === 0) {
-        const noCart = document.createElement('div');
-        noCart.classList.add('empty-cart-message');
-        
-        const noCartP = document.createElement('p');
-        noCartP.textContent = "No items are added.";
-        noCart.appendChild(noCartP);
-        
-        cartContainer.appendChild(noCart);
-        return;
-    }
-
-    // Populate the cart with items
-    cartItems.forEach((item, index) => {
-        const cartItem = document.createElement('li');
-        cartItem.classList.add('side-cart-item');
-
-        const itemDetails = document.createElement('div');
-        itemDetails.classList.add('side-item-details');
-        itemDetails.textContent = item.heading; // Assuming `name` is a property of `item`
-
-        const totalPriceP = document.createElement('p');
-        totalPriceP.textContent = 'Total Price';
-
-        const totalPrice = document.createElement('scan');
-        totalPrice.textContent += item.body;
-
-        const removeBtn = document.createElement('button');
-        removeBtn.textContent = 'Remove';
-        removeBtn.addEventListener('click', () => removeFromCart(index));
-
-
-        const cartFooter = document.createElement('div');
-        cartFooter.classList.add('side-cart-footer');
-
-
-        const orderBtn = document.createElement('button');
-        orderBtn.textContent = 'Order';
-        /*orderBtn.addEventListener('click', () => addToCartWindow)
-        
-        cartItem.appendChild(itemDetails);
-        cartItem.appendChild(totalPriceP);
-        cartItem.appendChild(totalPrice);
-        cartItem.appendChild(removeBtn);
-        cartFooter.appendChild(orderBtn);
-        cartItem.appendChild(cartFooter);
-
-
-        cartContainer.appendChild(cartItem);
-      
-    });
-}*/
-
 
 // Function to remove an item from the cart
 function removeFromCart(index) {
@@ -564,7 +508,7 @@ function createCards(foodstallDataSet) {
         // Add event listener to the button
         cartBtn.addEventListener('click', () => {
             addToCart(data); // Add the clicked item to the cart
-            toggleCart(); // Open the cart and shift the container
+            toggleCart();
         });
 
         card.appendChild(cardRate);
@@ -574,30 +518,6 @@ function createCards(foodstallDataSet) {
 
     postContainer.appendChild(fragment);
 }
-
-
-// Get the cart icon and slide box
-const cartIcon = document.getElementById('cart-icon');
-const slideBox = document.querySelector('.slide-box');
-
-// Toggle the visibility of the slide box when the cart icon is clicked
-cartIcon.addEventListener('click', () => {
-  slideBox.classList.toggle('active'); // Add or remove the 'active' class
-});
-
-
-
-
-
-
-
-
-
-
-
-
-/////
-
 
 function updateCartUI() {
     const cartContainer = document.querySelector('.side-cart .side-cart-items');
@@ -631,34 +551,51 @@ function updateCartUI() {
         totalPrice.textContent = '₱' + item.price;
 
         const removeBtn = document.createElement('button');
-        removeBtn.textContent = 'Remove';
+        itemDetails.classList.add('remove-btn');
         removeBtn.addEventListener('click', () => removeFromCart(index));
+
+        const removeBtnPic = document.createElement('img');
+        removeBtn.appendChild(removeBtnPic);
+        removeBtnPic.src = "Images/Remove.png";
+        removeBtnPic.alt = 'Add to Cart';
+        removeBtnPic.style.width = '24px';
+        removeBtnPic.style.height = '24px';
 
         const cartFooter = document.createElement('div');
         cartFooter.classList.add('side-cart-footer');
 
-        const orderBtn = document.createElement('button');
-        orderBtn.textContent = 'Order';
-        orderBtn.addEventListener('click', () => addOrderToSlideBox(item, index)); // Add order to the slide box
+        const orderBtn = document.querySelector('#order-btn');
+        orderBtn.addEventListener('click', () => {
+            if (cartItems.length > 0) {
+                cartItems.forEach(item => addOrderToSlideBox(item)); // Process each item
+                console.log('Order button clicked');
+            } else {
+                console.warn('No items in the cart to order!');
+            }
+        });
 
         cartItem.appendChild(itemDetails);
         cartItem.appendChild(totalPriceP);
         cartItem.appendChild(totalPrice);
         cartItem.appendChild(removeBtn);
-        cartFooter.appendChild(orderBtn);
         cartItem.appendChild(cartFooter);
 
         cartContainer.appendChild(cartItem);
     });
+
+     
 }
 
 // Function to add an order to the slide-box
-function addOrderToSlideBox(item, index) {
+function addOrderToSlideBox(item) {
     const slideBox = document.querySelector('.slide-box .box1');
 
     // Create a new div for the ordered item
     const orderedItem = document.createElement('div');
-    orderedItem.classList.add('ordered-item');
+    orderedItem.classList.add('column1');
+
+    const orderedItemRow = document.createElement('div');
+    orderedItemRow.classList.add('row1');
 
     const itemName = document.createElement('p');
     itemName.textContent = item.heading;
@@ -666,14 +603,11 @@ function addOrderToSlideBox(item, index) {
     const itemPrice = document.createElement('p');
     itemPrice.textContent = '₱' + item.price;
 
-    // Add the order to the slide-box
-    orderedItem.appendChild(itemName);
-    orderedItem.appendChild(itemPrice);
+
+    orderedItemRow.appendChild(itemName);
+    orderedItemRow.appendChild(itemPrice);
+    orderedItem.appendChild(orderedItemRow);
+
     slideBox.appendChild(orderedItem);
-
-    // Remove the item from the cart
-    removeFromCart(index);
-
-    // Notify user
-    console.log(`Order for "${item.heading}" has been added to the slide-box.`);
 }
+

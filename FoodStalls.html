@@ -61,19 +61,33 @@
           
           <div class="card-container"></div>
           <div class="side-cart">
+               <h2>My Cart</h2>
                <div class="side-cart-items" id="cart-items"></div>
-               <button class="checkout-btn">Checkout</button>
-               <button class="clear-cart-btn">Clear Cart</button>
+               <button id="order-btn">Order</button>
           </div>
 
           <div class="slide-box">
                <div class="box1">
-                    <!--<div class="column1">
-                         <div class="row1">
-                              <div class="rows"></div>
-                         </div>
-                    </div>-->
-                    <div class="column2"></div>
+               </div>
+               <div class="box2">
+                    <legend>Payment Options</legend>
+                    
+                    <div class="payment-option">
+                         <input type="radio" name="payment" id="cash" value="Cash">
+                         <label for="cash">Cash on Delivery</label>
+                    </div>
+                    
+                    <div class="payment-option">
+                         <input type="radio" name="payment" id="gcash" value="GCash">
+                         <label for="gcash">GCash Payment</label>
+                    </div>
+                    
+                    <div class="payment-info">
+                         <p><strong>Recipient Name:</strong> <span>Juan Dela Cruz</span></p>
+                    </div>
+                    <div class="payment-info">
+                         <p><strong>Mobile Number:</strong> <span>09123456789</span></p>
+                    </div>
                </div>
           </div>
      </div>
