@@ -1,0 +1,269 @@
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+html {
+     margin: 0;
+     overflow-x: hidden;
+     scroll-behavior: smooth;
+}
+
+
+body {
+     margin: 0;
+     background-color: rgb(204, 204, 204);
+     background: linear-gradient(to bottom, rgb(204, 204, 204, 1), rgb(204, 204, 204, 1), rgb(155, 134, 189, 1), rgb(226, 187, 233, 1));
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-attachment: fixed;
+     background-size: cover;
+     overflow-x: hidden;
+}
+
+/*Header */
+header{
+     height: 70px;
+     background-color: #FFFFFF;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 5px 5px;
+     position: static;
+}
+
+.logo-container{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 10px;
+}
+
+.logo{
+     cursor: pointer;
+     height: 60px;
+     padding: 5px 5px;
+}
+
+.munchMate {
+     position: relative;
+     font-family: 'Harlow Solid', cursive;
+     margin: 5px 3px;
+     padding: 3px 5px;
+     font-size: 2.9rem;
+     display: flex;
+     left: 20px;
+}
+
+.nav-item {
+     list-style: none;
+     display: flex;
+     gap: 30px;
+}
+
+.nav-link {
+     text-decoration: none;
+     color: black;
+}
+
+.nav-link  {
+     transition: all 0.3s ease 0s;
+}
+
+.nav-link:hover {
+     color: rgb(179, 193, 205);
+}
+
+/*Background Design */
+.food-design-item-1 {
+     width: 120px;
+     height: 123px;
+     position: absolute;
+     background-image: url('Images/Food_DesignPic/Food Pic 1.png');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     top: 120px;
+     left: 300px;
+}
+
+.food-design-item-2 {
+     width: 110px;
+     height: 80px;
+     position: absolute;
+     background-image: url('Images/Food_DesignPic/Food Pic 2.png');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     top: 120px;
+     right: 300px;
+}
+
+.food-design-item-3 {
+     width: 70px;
+     height: 110px;
+     position: absolute;
+     background-image: url('Images/Food_DesignPic/Food Pic 3.png');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     top: 250px;
+     left: 100px;
+}
+
+.food-design-item-4 {
+     width: 80px;
+     height: 143px;
+     position: absolute;
+     background-image: url('Images/Food_DesignPic/Food Pic 4.png');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     top: 250px;
+     right: 90px;
+}
+
+.food-design-item-5 {
+     width: 90px;
+     height: 90px;
+     position: absolute;
+     background-image: url('Images/Food_DesignPic/Food Pic 5.png');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     top: 450px;
+     left: 340px;
+}
+
+.food-design-item-6 {
+     width: 100px;
+     height: 120px;
+     position: absolute;
+     background-image: url('Images/Food_DesignPic/Food Pic 6.png');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     top: 450px;
+     right: 340px;
+}
+
+.food-design-item-7 {
+     width: 80px;
+     height: 90px;
+     position: absolute;
+     background-image: url('Images/Food_DesignPic/Food Pic 7.png');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     bottom: 100px ;
+     left: 150px;
+}
+
+.food-design-item-8 {
+     width: 120px;
+     height: 80px;
+     position: absolute;
+     background-image: url('Images/Food_DesignPic/Food Pic 8.png');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     bottom: 50px;
+     right: 150px;
+}
+
+
+/**/
+
+.main {
+     position: relative;
+     width: 100%;
+     height: 100vh;
+     padding: 20px;
+     align-items: stretch;
+}
+
+.box1,
+.box2 {
+     position: absolute;
+     padding: 20px;
+     box-sizing: border-box;
+}
+
+.box1 {
+     flex: 0 0 40%;
+     max-width: 50%;
+     z-index: 1;
+     background-color: #492dbb;
+}
+
+.box1 .tagline{
+     font-size: 2.898rem;
+     font-weight: 800;
+     color: #333333;
+     text-align: left;
+     line-height: 1.2;
+     align-self: center;
+     margin-bottom: 20px;
+}
+
+.box1 .tagline span {
+     color: #852dbb;
+     font-weight: 800;
+}
+
+.box1 p {
+     font-size: 1.2rem;
+     text-align: left;
+     margin-top: 10px;
+}
+
+.box2 {
+     width: 60%;
+     z-index: 2;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.box2 img{
+     right: 50px;
+     width: 90%;
+     max-width: 300px;
+}
+
+.orderBtn {
+     display: inline-block;
+     margin-top: 20px;
+     padding: 15px 30px;
+     font-size: 1.2rem;
+     font-weight: bold;
+     color: #fff;
+     background-color: #852dbb;
+     border: none;
+     border-radius: 50px;
+     cursor: pointer;
+     text-decoration: none;
+     transition: all 0.3s ease-in-out;
+     box-shadow: 0 5px 15px rgba(133, 45, 187, 0.3);
+}
+
+.orderBtn:hover {
+     background-color: #6a22a7;
+     box-shadow: 0 8px 20px rgba(133, 45, 187, 0.5);
+}
+
+
+
+ @media (max-width: 768px) {
+     .munchMate {
+          font-size: 2rem;
+     }
+     .box1 .tagline {
+          font-size: 30px;
+     }
+
+     .box1 p {
+          font-size: 16px;
+     }
+ }

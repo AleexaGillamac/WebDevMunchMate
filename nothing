@@ -1,0 +1,241 @@
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+html {
+          margin: 0;
+          overflow-x: hidden;
+     scroll-behavior: smooth;
+}
+
+
+body {
+     margin: 0;
+     background-color: rgb(204, 204, 204);
+     background: linear-gradient(to bottom, rgb(204, 204, 204, 1), rgb(204, 204, 204, 1), rgb(155, 134, 189, 1), rgb(226, 187, 233, 1));
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-attachment: fixed;
+     background-size: cover;
+     overflow-x: hidden;
+}
+
+/* Header */
+header {
+     height: 70px;
+     background-color: #FFFFFF;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 5px 5px;
+     position: static;
+}
+
+.logo-container {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+}
+
+.logo {
+     cursor: pointer;
+     height: 60px;
+     padding: 5px 5px;
+}
+
+.munchMate {
+     font-family: 'Harlow Solid', cursive;
+     margin: 5px 3px;
+     padding: 3px 5px;
+     font-size: 35px;
+     display: flex;
+     left: 20px;
+}
+
+.nav-item {
+     list-style: none;
+     display: flex;
+     gap: 30px;
+}
+
+.nav-link {
+     text-decoration: none;
+     color: black;
+}
+
+.nav-link {
+     transition: all 0.3s ease 0s;
+}
+
+.nav-link:hover {
+     color: rgb(179, 193, 205);
+}
+
+
+
+
+/*Food Stall List
+
+     .box-container
+          .box
+               .box-content
+                    .box-list
+                         .box-item
+                              .box-link
+*/
+.box-container {
+     display: flex;
+     flex-wrap: wrap;
+     flex-direction: column;
+     justify-content: flex-start;
+     width: 1%;
+     padding: 10px;
+     gap: 20px;
+}
+
+
+.box {
+     width: 80%px;
+     max-width: 140px;
+     height: auto;
+     /*margin: 10px 10px;*/
+     padding: 10px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     border-radius: 15px;
+     background-color: #ffffff;
+     box-shadow: 0px 3px 5px rgba(0, 0, 1, 0.1);
+}
+
+
+/* List styling */
+.box-list {
+     list-style: none;
+     padding: 0;
+     margin: 12px;
+}
+
+.box-item {
+     padding: 10px;
+     border-radius: 10px;
+     margin-bottom: 7px;
+     background-color: #ffffff;
+}
+
+.box-item img {
+     width: 120px;
+     height: 90px;
+     border-radius: 10px;
+     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+     display: block;
+     object-fit: cover;
+}
+
+
+
+/*Card*/
+
+/* Container for the cards */
+.card-container {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 20px;
+     justify-content: space-evenly;
+     grid-row: 5;
+     width: 100%;
+}
+
+.card {
+     flex: 1 1 calc(20% - 20px);
+     max-width: 300px;
+     height: 250px;
+     border: 1px solid #ccc;
+     justify-content: center;
+     align-self: center;
+     border-radius: 8px;
+     box-sizing: border-box;
+     padding: 15px;
+     text-align: center;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     background-color: #fff;
+     margin: 20px 0;
+     /* Adjust top and bottom margin */
+}
+
+.card img {
+     width: 100%;
+     height: 90px;
+     position: relative;
+     padding: 2px 2px;
+     margin-bottom: 10px;
+}
+
+.card h2 {
+     font-size: 18px;
+     margin: 5px 0;
+}
+
+.card p {
+     font-size: 14px;
+     margin: 10px 0;
+}
+
+button {
+     background-color: #ffffff;
+     border: none;
+     color: white;
+     padding: 10px 20px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-flex;
+     align-items: center;
+     justify-content: flex-end;
+     border-radius: 5px;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+}
+
+/* Style the image inside the button */
+button img {
+     width: 1px;
+     height: 10px;
+     margin-right: 8px;
+     object-fit: contain;
+}
+
+button:hover {
+     background-color: #f7f8f7;
+}
+
+button:focus {
+     outline: none;
+     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+     .card {
+          flex: 1 1 calc(50% - 20px);
+          /* 2 cards per row */
+     }
+}
+
+@media (max-width: 480px) {
+     .card {
+          flex: 1 1 calc(100% - 20px);
+          /* 1 card per row */
+     }
+}
